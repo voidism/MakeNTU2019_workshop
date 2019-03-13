@@ -1,6 +1,6 @@
 import cv2 as cv
 from time import time
-from src.util import genHash, findBean, getClip, atCenter
+from utils import genHash, findBean, getClip, atCenter
 
 
 class Scanner:
@@ -46,7 +46,9 @@ class Scanner:
         filepath = './tem/' + genHash() + '.png'
         cv.imwrite(filepath, bean)
         return filepath
-
+    def get_photo(self, file_name):
+        self.frame = self.cap.read()[1]
+        cv.imwrite(file_name, self.frame)
     """
     functions for process frame
     """
