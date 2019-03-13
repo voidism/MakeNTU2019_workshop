@@ -1,3 +1,3 @@
 # MakeNTU 2019 workshop - FaceLock
 
-![cover](cover.png)
+![cover](cover.jpg)
