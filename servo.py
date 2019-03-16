@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO
 
 
-class Servo():
+class Servo:
     def __init__(self, CONTROL_PIN = 17, PWM_FREQ = 50):
         self.PWM_FREQ = PWM_FREQ
         GPIO.setmode(GPIO.BCM)

@@ -2,8 +2,8 @@ import http.client, urllib.request, urllib.parse, urllib.error, base64, json, ss
 
 ssl._create_default_https_context = ssl._create_unverified_context
 
-class AzureAPI():
-    def __init__(self, key='3a14d8d6088841b8a3ee801eaa58bc0d'):
+class AzureAPI:
+    def __init__(self, key='############ your azure api key ############', website='### you server location ### e.g. westcentralus.api.cognitive.microsoft.com'):
         self.DetectHeaders = {
             # Request headers
             'Content-Type': 'application/octet-stream',
@@ -23,12 +23,13 @@ class AzureAPI():
         })
         self.void = urllib.parse.urlencode({
         })
+        self.website = website
         self.body = None
         self.response = None
-        self.conn = http.client.HTTPSConnection('westcentralus.api.cognitive.microsoft.com')
+        self.conn = http.client.HTTPSConnection(self.website)
 
     def Reconnect(self):
-        self.conn = http.client.HTTPSConnection('westcentralus.api.cognitive.microsoft.com')
+        self.conn = http.client.HTTPSConnection(self.website)
 
     def GetFaceId(self, filename):
         try:
@@ -46,6 +47,7 @@ class AzureAPI():
             print("[Errno {0}] {1}".format(e.errno, e.strerror))
             print("Try: Reconnect to API.")
             self.Reconnect()
+            return ""
 
     def VerifyFaceId(self, id1, id2):
         try:
@@ -60,6 +62,7 @@ class AzureAPI():
             print(e)
             print("Try: Reconnect to API.")
             self.Reconnect()
+            return False
 
-    def __exit__(self):
+    def __exit__(self, exc_type, exc_value, traceback):
         self.conn.close()
