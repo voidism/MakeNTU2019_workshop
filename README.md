@@ -44,7 +44,7 @@ https://azure.microsoft.com/zh-tw/free/students/
 
 ![](https://i.imgur.com/5QkDnQj.png)
 
-填入名稱、位置(server位置)、Pricing Tier 選 f0、Resource group 按"新建"創一個
+填入名稱、位置(server位置，要記得，等等會用到)、Pricing Tier 選 f0、Resource group 按"新建"創一個
 
 
 ![](https://i.imgur.com/Qtz0mAl.png)
@@ -68,7 +68,8 @@ https://azure.microsoft.com/zh-tw/free/students/
 
 ## 前製作業
 
-- 在程式碼 `face_api.py` 的第6行 填入 `###your azure api key###` 和 `###you server location###`
+- 在程式碼 `face_api.py` 的第6行 填入 `###your azure api key###` 和 `###you server location###`。如：West US 就填 westus.api.cognitive.microsoft.com。
+
 - 將 servo motor 與 GPIO pin腳連接:
   - 紅 <=> pin 2
   - 棕 <=> pin 6
