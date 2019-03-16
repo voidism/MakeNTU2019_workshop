@@ -47,8 +47,10 @@ class Scanner:
         cv.imwrite(filepath, bean)
         return filepath
     def get_photo(self, file_name):
-        self.frame = self.cap.read()[1]
-        cv.imwrite(file_name, self.frame)
+        frame = self.cap.read()[1]
+        cv.imwrite(file_name, frame)
+        self.cap.release()
+        self.cap = cv.VideoCapture(0)
     """
     functions for process frame
     """

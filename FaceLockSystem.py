@@ -3,6 +3,7 @@ import os
 from face_api import AzureAPI
 from camera import Scanner
 from utils import genHash
+from servo import Servo
 
 class LockSystem():
     def __init__(self):
@@ -10,10 +11,7 @@ class LockSystem():
         self.UserId = None
         self.locked = True
         self.cam = Scanner(0)
-        self.img_file = self.GetHashName()
-
-    def __exit__(self, exc_type, exc_value, traceback):
-        os.remove(self.img_file)
+        self.servo = Servo()
 
     def GetHashName(self):
         return genHash() + ".png"
@@ -23,8 +21,10 @@ class LockSystem():
             print("It is still unlocked!")
             return "It is still unlocked!"
         if self.UserId == None:
-            self.cam.get_photo(self.img_file)
-            faceid = self.myAPI.GetFaceId(self.img_file)
+            temp_name = self.GetHashName()
+            self.cam.get_photo(temp_name)
+            faceid = self.myAPI.GetFaceId(temp_name)
+            os.remove(temp_name)
             if faceid == "":
                 return "Face Not Detected!"
             self.UserId = faceid
@@ -69,7 +69,6 @@ class LockSystem():
             return "Face Not Detected!"
         if self.myAPI.VerifyFaceId(self.UserId, cur_id):
             self.UserId = None
-            os.remove(self.img_file)
             print("Checkout Successfully!")
             return "Checkout Successfully!"
         else:
@@ -84,6 +83,8 @@ class LockSystem():
 
     def _unlock(self):
         self.locked = False
+        self.servo.turn(0)
 
     def _lock(self):
         self.locked = True
+        self.servo.turn(90)
