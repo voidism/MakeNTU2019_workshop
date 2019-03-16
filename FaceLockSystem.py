@@ -12,6 +12,9 @@ class LockSystem():
         self.cam = Scanner(0)
         self.img_file = self.GetHashName()
 
+    def __exit__(self, exc_type, exc_value, traceback):
+        os.remove(self.img_file)
+
     def GetHashName(self):
         return genHash() + ".png"
 

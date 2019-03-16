@@ -38,7 +38,10 @@ class AzureAPI():
             data = self.response.read()
             result = json.loads(data.decode('ascii'))
             print(result)
-            return result[0]['faceId']
+            if len(result) == 0:
+                return ""
+            else:
+                return result[0]['faceId']
         except Exception as e:
             print("[Errno {0}] {1}".format(e.errno, e.strerror))
             print("Try: Reconnect to API.")
