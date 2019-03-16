@@ -68,7 +68,7 @@ https://azure.microsoft.com/zh-tw/free/students/
 
 ## 前製作業
 
-- 在程式碼 `face_api.py` 的第6行 填入 `###your azure api key###` 和 `###you server location###`。如：West US 就填 westus.api.cognitive.microsoft.com。
+- 在程式碼 `face_api.py` 的第6行 填入 `###your azure api key###` 和 `###you server location###`。如：West US 就填 [westus.api.cognitive.microsoft.com](westus.api.cognitive.microsoft.com)。
 
 - 將 servo motor 與 GPIO pin腳連接:
   - 紅 <=> pin 2
