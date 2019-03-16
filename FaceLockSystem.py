@@ -22,6 +22,8 @@ class LockSystem():
         if self.UserId == None:
             self.cam.get_photo(self.img_file)
             faceid = self.myAPI.GetFaceId(self.img_file)
+            if faceid == "":
+                return "Face Not Detected!"
             self.UserId = faceid
             self._unlock()
             return "Unlocked!"
@@ -40,6 +42,8 @@ class LockSystem():
         self.cam.get_photo(temp_name)
         cur_id = self.myAPI.GetFaceId(temp_name)
         os.remove(temp_name)
+        if cur_id == "":
+            return "Face Not Detected!"
         if self.myAPI.VerifyFaceId(self.UserId, cur_id):
             self._unlock()
             return "Unlocked!"
@@ -58,6 +62,8 @@ class LockSystem():
         self.cam.get_photo(temp_name)
         cur_id = self.myAPI.GetFaceId(temp_name)
         os.remove(temp_name)
+        if cur_id == "":
+            return "Face Not Detected!"
         if self.myAPI.VerifyFaceId(self.UserId, cur_id):
             self.UserId = None
             os.remove(self.img_file)
