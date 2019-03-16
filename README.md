@@ -112,7 +112,7 @@ https://azure.microsoft.com/zh-tw/free/students/
 ## 使用說明
 `main_gui.py` 正常執行下會出現GUI小視窗：
 
-![](https://i.imgur.com/GUmOAkH.png)
+![](https://i.imgur.com/up4xYHQ.png)
 
 1. 先將臉部對準 web-cam，按 register 註冊，登錄成功後 Lock 會打開，在 Checkout 之前無法再次註冊
 2. 按 Lock 將鎖鎖上後，下次可再將臉部對準 web-cam 按 Unlock 開鎖，若是其他人則無法開鎖

@@ -43,6 +43,6 @@ class GUIDemo(Frame):
         self.displayText.grid(row=3, column=0, columnspan=7)
         
 if __name__ == '__main__':
-    root = Tk("MakeNTU2019")
+    root = Tk(className="Face Lock")
     app = GUIDemo(master=root)
     app.mainloop()
