@@ -1,3 +1,5 @@
+import os
+
 from face_api import AzureAPI
 from camera import Scanner
 from utils import genHash
@@ -8,9 +10,12 @@ class LockSystem():
         self.UserId = None
         self.locked = True
         self.cam = Scanner(0)
-        self.img_file = genHash() + ".png"
+        self.img_file = self.GetHashName()
 
-    def Register(self, img_file):
+    def GetHashName(self):
+        return genHash() + ".png"
+
+    def Register(self):
         if self.locked == False:
             print("It is still unlocked!")
             return "It is still unlocked!"
@@ -24,15 +29,17 @@ class LockSystem():
             print("This box is occupied!")
             return "This box is occupied!"
 
-    def Unlock(self, img_file):
+    def Unlock(self):
         if self.locked == False:
             print("It is still unlocked!")
             return "It is still unlocked!"
         if self.UserId == None:
             print("Have not register yet!")
             return "Have not register yet!"
-        self.cam.get_photo(self.img_file)
-        cur_id = self.myAPI.GetFaceId(self.img_file)
+        temp_name = self.GetHashName()
+        self.cam.get_photo(temp_name)
+        cur_id = self.myAPI.GetFaceId(temp_name)
+        os.remove(temp_name)
         if self.myAPI.VerifyFaceId(self.UserId, cur_id):
             self._unlock()
             return "Unlocked!"
@@ -40,17 +47,20 @@ class LockSystem():
             print("Verify fail. Please do again!")
             return "Verify fail. Please do again!"
 
-    def Checkout(self, img_file):
+    def Checkout(self):
         if self.UserId == None:
             print("Have not register yet!")
             return "Have not register yet!"
         elif not self.locked:
             print("Lock before checkout!")
             return "Lock before checkout!"
-        self.cam.get_photo(self.img_file)
-        cur_id = self.myAPI.GetFaceId(self.img_file)
+        temp_name = self.GetHashName()
+        self.cam.get_photo(temp_name)
+        cur_id = self.myAPI.GetFaceId(temp_name)
+        os.remove(temp_name)
         if self.myAPI.VerifyFaceId(self.UserId, cur_id):
             self.UserId = None
+            os.remove(self.img_file)
             print("Checkout Successfully!")
             return "Checkout Successfully!"
         else:

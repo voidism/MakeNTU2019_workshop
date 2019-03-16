@@ -1,4 +1,6 @@
-import http.client, urllib.request, urllib.parse, urllib.error, base64, json
+import http.client, urllib.request, urllib.parse, urllib.error, base64, json, ssl
+
+ssl._create_default_https_context = ssl._create_unverified_context
 
 class AzureAPI():
     def __init__(self, key='3a14d8d6088841b8a3ee801eaa58bc0d'):
