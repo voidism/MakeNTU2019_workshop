@@ -79,10 +79,38 @@ https://azure.microsoft.com/zh-tw/free/students/
 
 ## Run Code
 
-跑 `main_gui.py`，看看有沒有漏裝東西
+1. 跑 `python3 -i servo.py`:
+
+```
+>>> s = Servo()
+>>> s.turn(90)
+```
+
+確認伺服馬達是否運作正常。
+
+2. 跑 `python3 -i camera.py`:
+
+```
+>>> s = Scanner(0)
+>>> s.get_photo("test.png")
+```
+
+確認 web-cam 是否有拍下照片 `"test.png"`。
+
+3. 跑 `python3 -i face_api.py`:
+
+```
+>>> s = AzureAPI()
+>>> s.GetFaceId("test.png")
+```
+
+確認 API 是否有回傳資料。
+
+
+4. 如果一切順利，就可以跑 `main_gui.py`了。
 
 ## 使用說明
-正常執行下會出現GUI小視窗：
+`main_gui.py` 正常執行下會出現GUI小視窗：
 
 ![](https://i.imgur.com/GUmOAkH.png)
 
