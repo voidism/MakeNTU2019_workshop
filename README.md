@@ -1,6 +1,6 @@
 # MakeNTU 2019 workshop - FaceLock
 
-MakeNTU 2019 工作坊小project - 用 Microsoft Azure, OpenCV, Raspberry Pi 3 製作一個人臉置物鎖
+MakeNTU 2019 工作坊小project - 用 Microsoft Azure, OpenCV, Raspberry Pi 3 製作一個人臉置物櫃鎖
 
 ![cover](cover.jpg)
 
