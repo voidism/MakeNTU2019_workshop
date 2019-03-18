@@ -26,6 +26,8 @@ class LockSystem:
             os.remove(temp_name)
             if faceid == "":
                 return "Face Not Detected!"
+            if faceid == "api_error":
+                return "API connect Fail!"
             self.UserId = faceid
             self._unlock()
             return "Unlocked!"
@@ -43,6 +45,8 @@ class LockSystem:
         os.remove(temp_name)
         if cur_id == "":
             return "Face Not Detected!"
+        if cur_id == "api_error":
+            return "API connect Fail!"
         if self.myAPI.VerifyFaceId(self.UserId, cur_id):
             self._unlock()
             return "Unlocked!"
@@ -60,6 +64,8 @@ class LockSystem:
         os.remove(temp_name)
         if cur_id == "":
             return "Face Not Detected!"
+        if cur_id == "api_error":
+            return "API connect Fail!"
         if self.myAPI.VerifyFaceId(self.UserId, cur_id):
             self.UserId = None
             return "Checkout Successfully!"

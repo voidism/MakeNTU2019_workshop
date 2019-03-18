@@ -13,7 +13,7 @@ class Servo:
     def __exit__(self, exc_type, exc_value, traceback):
         self.pwm.stop()
         GPIO.cleanup()
-         
+        
     def angle_to_duty_cycle(self, angle=0):
         duty_cycle = (0.05 * self.PWM_FREQ) + (0.19 * self.PWM_FREQ * angle / 180)
         return duty_cycle

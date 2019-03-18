@@ -3,7 +3,7 @@ import http.client, urllib.request, urllib.parse, urllib.error, base64, json, ss
 ssl._create_default_https_context = ssl._create_unverified_context
 
 class AzureAPI:
-    def __init__(self, key='############ your azure api key ############', website='### you server location ### e.g. westcentralus.api.cognitive.microsoft.com'):
+    def __init__(self, key='3d90caf0389d46e59677b683654a8e7b', website='westcentralus.api.cognitive.microsoft.com'):
         self.DetectHeaders = {
             # Request headers
             'Content-Type': 'application/octet-stream',
