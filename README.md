@@ -66,10 +66,55 @@ https://azure.microsoft.com/zh-tw/free/students/
 ![](https://i.imgur.com/NSVdlyj.png)
 
 
-## 前製作業
+
+## RPI 基本操作
+
+給大家的RPI都已經灌好OS，如果需要自己灌，下載此映像檔並解壓縮，用[ApplePI-Baker](<https://www.pibakery.org/download.html>)之類的程式燒錄進SD卡即可
+
+<https://drive.google.com/file/d/1wUdb_WaU1hjPG_VCjFBW8ShqgJWwMoqK/view?usp=sharing>
+
+此映像檔已經裝好python3.6、miniconda、python-opencv
+
+並設有一組wifi名稱密碼，會自動連上，可以直接將手機的無限基地台名稱及密碼設定如下，RPI即可自己連上：
+
+![](https://i.imgur.com/F8yWHDb.png)
+
+
+
+當RPI跟電腦都各自連上手機分享的網路，透過手機的基地台設定可以察看所有連上裝置的內網ip
+
+
+
+![](https://i.imgur.com/3Bs3Qxr.jpg)
+
+找到RPI的內網IP位置，且電腦也已經連接上手機分享的網路，就可以使用Terminal打`ssh pi@192.168.xx.xx`，password:`raspberry` 連上RPI了
+
+但因為ssh只能用bash，沒辦法看到RPI畫面，如果想用VNC連RPI看畫面，需要裝一下tightvncserver：
+
+```bash
+sudo apt-get install tightvncserver
+tightvncserver
+```
+
+第一次使用會叫你設定一個8位數的VNC密碼
+
+然後用mac開啟Finder>>前往>>連接伺服器
+
+打入  `vnc://{RPI的內網IP}:5901` 如：`vnc://192.168.0.104:5901`。之後按連線輸入密碼，即可連上。
+
+如果下次開機，也想使用VNC，記得要再打一次`tightvncserver`
+
+如果是windows請下載VNC的client端軟體，如<https://www.realvnc.com/en/connect/download/viewer/>
+
+## 下載本專案程式碼
+
+隨便找個地方，像是`~` (`/home/pi/`)
+
+打`git clone https://github.com/voidism/MakeNTU2019_workshop`
+
+## 前置作業
 
 - 在程式碼 `face_api.py` 的第6行 填入 `###your azure api key###` 和 `###you server location###`。如：West US 就填 [westus.api.cognitive.microsoft.com](westus.api.cognitive.microsoft.com)。
-
 - 將 servo motor 與 GPIO pin腳連接:
   - 紅 <=> pin 2
   - 棕 <=> pin 6
