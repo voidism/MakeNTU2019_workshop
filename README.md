@@ -279,47 +279,6 @@ cd MakeNTU2019_workshop
 
 
 
-## 前置作業 (軟體)
-
-- 進入資料夾後，在程式碼 `face_api.py` 的第6行，把  
-`###your azure api key###`和`###you server location###`  
-改成自己剛剛在Azure申請好的的key跟server網址。server網址是server位置加上後面一串字，如：West US 就填 
-```
-westus.api.cognitive.microsoft.com
-```
-
-
-
-server 位置 網址對應
-
-```perl
-West US - westus.api.cognitive.microsoft.com
-West US 2 - westus2.api.cognitive.microsoft.com
-East US - eastus.api.cognitive.microsoft.com
-East US 2 - eastus2.api.cognitive.microsoft.com
-West Central US - westcentralus.api.cognitive.microsoft.com
-South Central US - southcentralus.api.cognitive.microsoft.com
-West Europe - westeurope.api.cognitive.microsoft.com
-North Europe - northeurope.api.cognitive.microsoft.com
-Southeast Asia - southeastasia.api.cognitive.microsoft.com
-East Asia - eastasia.api.cognitive.microsoft.com
-Australia East - australiaeast.api.cognitive.microsoft.com
-Brazil South - brazilsouth.api.cognitive.microsoft.com
-Canada Central - canadacentral.api.cognitive.microsoft.com
-Central India - centralindia.api.cognitive.microsoft.com
-UK South - uksouth.api.cognitive.microsoft.com
-Japan East - japaneast.api.cognitive.microsoft.com
-Central US - centralus.api.cognitive.microsoft.com
-France Central - francecentral.api.cognitive.microsoft.com
-Korea Central - koreacentral.api.cognitive.microsoft.com
-Japan West - japanwest.api.cognitive.microsoft.com
-North Central US - northcentralus.api.cognitive.microsoft.com
-```
-
-
-
-
-
 
 
 ### 前置作業 (硬體)
@@ -397,6 +356,51 @@ pi@raspberrypi:~/MakeNTU2019_workshop $ python -i camera.py
 
 
 
+
+
+## 前置作業 (設定 API Key)
+
+- 進入資料夾後，在程式碼 `face_api.py` 的第6行，把  
+`###your azure api key###`和`###you server location###`  
+改成自己剛剛在Azure申請好的的key跟server網址。server網址是server位置加上後面一串字，如：West US 就填 
+```
+westus.api.cognitive.microsoft.com
+```
+
+
+
+server 位置 網址對應
+
+```perl
+West US - westus.api.cognitive.microsoft.com
+West US 2 - westus2.api.cognitive.microsoft.com
+East US - eastus.api.cognitive.microsoft.com
+East US 2 - eastus2.api.cognitive.microsoft.com
+West Central US - westcentralus.api.cognitive.microsoft.com
+South Central US - southcentralus.api.cognitive.microsoft.com
+West Europe - westeurope.api.cognitive.microsoft.com
+North Europe - northeurope.api.cognitive.microsoft.com
+Southeast Asia - southeastasia.api.cognitive.microsoft.com
+East Asia - eastasia.api.cognitive.microsoft.com
+Australia East - australiaeast.api.cognitive.microsoft.com
+Brazil South - brazilsouth.api.cognitive.microsoft.com
+Canada Central - canadacentral.api.cognitive.microsoft.com
+Central India - centralindia.api.cognitive.microsoft.com
+UK South - uksouth.api.cognitive.microsoft.com
+Japan East - japaneast.api.cognitive.microsoft.com
+Central US - centralus.api.cognitive.microsoft.com
+France Central - francecentral.api.cognitive.microsoft.com
+Korea Central - koreacentral.api.cognitive.microsoft.com
+Japan West - japanwest.api.cognitive.microsoft.com
+North Central US - northcentralus.api.cognitive.microsoft.com
+```
+
+
+
+
+
+
+
 ### 填空題(2)
 
 - `face_api.py`的第37行，有個 `# TODO`要填
@@ -408,9 +412,9 @@ self.conn.request("POST", "/face/v1.0/detect?%s" % self.params, self.body, self.
 
 
 > 原理:
-> `self.body` 是上一行定義的，就是把圖片用binary方式打開
-> `self.DetectHeaders` 裡面放的是我們的key跟檔案格式，已經在第七行定義好了
-> `self.params` 則是我們指定API要回傳給我們的東西，在19行已經定義好，我們設成只要回傳 FaceId。
+> `self.body` 是上一行定義的，就是把圖片用binary方式打開  
+> `self.DetectHeaders` 裡面放的是我們的key跟檔案格式，已經在第七行定義好了  
+> `self.params` 則是我們指定API要回傳給我們的東西，在19行已經定義好，我們設成只要回傳 FaceId。  
 
 
 
@@ -470,9 +474,9 @@ pi@raspberrypi:~/MakeNTU2019_workshop $ python -i face_api.py
 
 ### Flow
 
-程式一開始在未註冊的地方，註冊完可以進入Lock/Unlock的輪迴，
-輪迴中Unlock需要臉部解鎖，要交給下一位使用者的時候按Checkout，
-最後一次臉部解鎖確認身份，跳出輪迴。
+程式一開始在未註冊的地方，註冊完可以進入Lock/Unlock的輪迴，  
+輪迴中Unlock需要臉部解鎖，要交給下一位使用者的時候按Checkout，  
+最後一次臉部解鎖確認身份，跳出輪迴。  
 
 ![](https://i.imgur.com/DYmWXTc.png)
 
@@ -509,8 +513,8 @@ pi@raspberrypi:~/MakeNTU2019_workshop $ python -i face_api.py
 
 ![](https://i.imgur.com/Sx4wEbn.png)
 
-剛剛有說，用picamera的人要把資料夾中`face_lock_system.py`的第四行改成`from pi_camera import Scanner`
-沒做的話，相機就拍了一張空照片傳到Azure
+剛剛有說，用picamera的人要把資料夾中`face_lock_system.py`的第四行改成`from pi_camera import Scanner`  
+沒做的話，相機就拍了一張空照片傳到Azure  
 
 
 
