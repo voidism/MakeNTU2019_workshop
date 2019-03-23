@@ -34,7 +34,7 @@ class AzureAPI:
     def GetFaceId(self, filename):
         try:
             self.body = open(filename, mode="rb")
-            self.conn.request("POST", "/face/v1.0/detect?%s" % self.params, self.body, self.DetectHeaders)
+            # TODO
             self.response = self.conn.getresponse()
             data = self.response.read()
             result = json.loads(data.decode('ascii'))
