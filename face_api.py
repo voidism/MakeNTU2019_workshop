@@ -44,7 +44,7 @@ class AzureAPI:
             else:
                 return result[0]['faceId']
         except Exception as e:
-            print("[Errno {0}] {1}".format(e.errno, e.strerror))
+            print(e)
             print("Try: Reconnect to API.")
             self.Reconnect()
             return ""

@@ -8,14 +8,7 @@ class GUIDemo(Frame):
         self.createWidgets()
         self.F = LockSystem()
 
-    def register(self):
-        self.displayText["text"] = self.F.Register()
-    def checkout(self):
-        self.displayText["text"] = self.F.Checkout()
-    def unlock(self):
-        self.displayText["text"] = self.F.Unlock()
-    def lock(self):
-        self.displayText["text"] = self.F.Lock()
+    # TODO
         
     def createWidgets(self):
         self.register_button = Button(self)
