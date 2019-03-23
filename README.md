@@ -417,14 +417,12 @@ pi@raspberrypi:~/MakeNTU2019_workshop $ python -i camera.py
 self.conn.request("POST", "/face/v1.0/detect?%s" % self.params, self.body, self.DetectHeaders)
 ```
 
-```python
-原理:
-self.body 是上一行定義的，就是把圖片用binary方式打開
-self.DetectHeaders 裡面放的是我們的key跟檔案格式，
-已經在第七行定義好了
-self.params 則是我們指定API要回傳給我們的東西，在19行已經定義好，
-我們設成只要回傳 FaceId。
-```
+
+> 原理:
+> `self.body` 是上一行定義的，就是把圖片用binary方式打開
+> `self.DetectHeaders` 裡面放的是我們的key跟檔案格式，已經在第七行定義好了
+> `self.params` 則是我們指定API要回傳給我們的東西，在19行已經定義好，我們設成只要回傳 FaceId。
+
 
 
 
@@ -461,11 +459,10 @@ pi@raspberrypi:~/MakeNTU2019_workshop $ python -i face_api.py
         self.displayText["text"] = self.F.Lock()
 ```
 
-```
-原理：按下 Register 按鈕後，會執行 register()
-會去呼叫人臉鎖系統 self.F 的 Register() 函數
-並且把函數回傳值顯示到 self.displayText["text"]
-```
+> 原理：按下 Register 按鈕後，會執行 `register()`
+> 會去呼叫人臉鎖系統 `self.F` 的 `Register()` 函數
+> 並且把函數回傳值顯示到 `self.displayText["text"]`
+
 
 
 
