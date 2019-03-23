@@ -480,11 +480,11 @@ pi@raspberrypi:~/MakeNTU2019_workshop $ python -i face_api.py
 
 
 ### Flow
-```
+
 程式一開始在未註冊的地方，註冊完可以進入Lock/Unlock的輪迴，
 輪迴中Unlock需要臉部解鎖，要交給下一位使用者的時候按Checkout，
 最後一次臉部解鎖確認身份，跳出輪迴。
-```
+
 ![](https://i.imgur.com/DYmWXTc.png)
 
 
@@ -504,9 +504,9 @@ pi@raspberrypi:~/MakeNTU2019_workshop $ python -i face_api.py
 4. 所有錯誤操作皆會顯示提示字眼於下方那行字，如：人臉沒有對準鏡頭，會顯示 `Face Not Detected!`，操作成功也會顯示`Locked!`或`Unlocked!`等等。
 
 
-```
-成功Checkout!
-```
+
+> 成功Checkout!
+
 
 ![](https://i.imgur.com/gQWchYS.png)
 
