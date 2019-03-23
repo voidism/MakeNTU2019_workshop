@@ -417,7 +417,7 @@ pi@raspberrypi:~/MakeNTU2019_workshop $ python -i camera.py
 self.conn.request("POST", "/face/v1.0/detect?%s" % self.params, self.body, self.DetectHeaders)
 ```
 
-```
+```python
 原理:
 self.body 是上一行定義的，就是把圖片用binary方式打開
 self.DetectHeaders 裡面放的是我們的key跟檔案格式，
