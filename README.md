@@ -124,7 +124,7 @@ https://azure.microsoft.com/zh-tw/free/students/
 
 
 
-### 連上RPI - 取得RPI內網ip - 法一 (正常人用這個)
+## 連上RPI - 取得RPI內網ip - 法一 (正常人用這個)
 
 映像檔設有兩組wifi名稱密碼，會自動連上，第一組是工作坊場地wifi(名稱：COBINHOOD_Guest, 密碼：Siam87/bills)。  
 連上之後，借螢幕來接RPI的HDMI孔，直接用圖形化介面打開RPI的terminal打`ifconfig`，即可查詢內網ip(192.168.xxx.xxx)
@@ -138,33 +138,10 @@ inet 192.168.xxx.xxx 就是惹
 
 
 
-### 連上RPI - 取得RPI內網ip - 法二 (不需要螢幕，不會的請用法一)
-
-映像檔設的第二組wifi如下(名稱：rpiwifi, 密碼：pw123456)，如果是在連不到工作坊場地wifi的地方，且無旁人干擾，可以直接將手機的無線基地台名稱及密碼設定成一模一樣，RPI即可自己連上：
-
-```
-(如果附近也有人使用一樣方法，會分不清楚哪個ip是誰的，請小心使用)
-```
-<!-- 
-![](https://i.imgur.com/F8yWHDb.png) -->
+## 連上RPI - 取得RPI內網ip - 法二  (不需螢幕，要有自己的wifi)
 
 
-
-當RPI連上手機分享的網路，透過手機的基地台設定可以察看所有連上裝置的內網ip
-
-![](https://i.imgur.com/09ZtlE7.png)
-
-有了內網ip等等就可以直接ssh連線
-
-
-
-
-### 連上RPI - 取得RPI內網ip - 法三  (不需螢幕或手機，有wifi即可)
-
-```
-想連接某一wifi(教室wifi, ...etc)，但不是手機熱點無法調整他的名稱：
-```
-在開機之前先在SD卡最外面放入一個檔`wpa_supplicant.conf`，內容跟如下，wifi名稱密碼可以自己設想要的：
+在開機之前先在SD卡最外面放入一個檔`wpa_supplicant.conf`，內容跟如下，wifi名稱密碼可以自己設想要的(自己的手機熱點)：
 ```bash
 ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
 update_config=1
@@ -177,20 +154,32 @@ network={
 ```
 
 
+
+
+如果是手機分享的網路，透過手機的基地台設定可以察看所有連上裝置的內網ip
+
+![](https://i.imgur.com/09ZtlE7.png)
+
+有了內網ip等等就可以直接ssh連線
+
+
+
+
+
 如果不是手機熱點，安裝使用 [Angry IP Scanner](https://angryip.org/download/)來掃IP，先讓電腦連接上跟RPI一樣的wifi，掃`192.168.0.0 ~ 192.168.0.255` 之間的內網IP，名稱是`raspberry`的就是RPI的內網IP。 
 
 ![](https://i.imgur.com/UoxvlTv.png)
 
 
 
-### 有了RPI內網ip的下一步
+## 有了RPI內網ip的下一步
 
 找到RPI的內網IP位置之後，電腦也已經連接上跟RPI一樣的網路，就可以使用Terminal ssh連線`ssh pi@192.168.xx.xx`，password:`raspberry` 
 ![](https://i.imgur.com/npOubSW.png)
 
 
 
-### 連上RPI - 法四
+## 連上RPI - 法三
 
 從頭到尾都接螢幕。。。
 只要比賽當天自行攜帶螢幕，就可以接螢幕接到爽，不會有這些問題了喔～鳩咪～
@@ -530,7 +519,7 @@ pi@raspberrypi:~/MakeNTU2019_workshop $ python -i face_api.py
 
 
 
-### Q. 懶得填空？
+### Q. 懶得做填空題？
 ```bash
 git checkout e52cb6244f4c31857d7e9cc38f3fa692e1e88d5e
 ```
