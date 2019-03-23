@@ -2,7 +2,7 @@
 
 MakeNTU2019 樹莓派工作坊教學 - 用 Microsoft Azure, OpenCV, Raspberry Pi 3 製作一個人臉置物櫃鎖
 
-- slide link: bit.ly/MakeNTU2019
+- slide link: https://bit.ly/MakeNTU2019
 - 純圖文好讀版 & Code: https://github.com/voidism/MakeNTU2019_workshop
 
 
